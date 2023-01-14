@@ -1,11 +1,11 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Context from './Context';
 import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
 import TodoList from './components/TodoList';
 import TodoPeriod from './components/TodoPeriod';
 import TodoCreate from './components/TodoCreate';
+import { TodoProvider } from './Context';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -16,13 +16,15 @@ body {
 const App = () => {
   return (
     <div>
-      <GlobalStyle />
-      <TodoPeriod />
-      <TodoTemplate>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate />
-      </TodoTemplate>
+      <TodoProvider>
+        <GlobalStyle />
+        <TodoPeriod />
+        <TodoTemplate>
+          <TodoHead />
+          <TodoList />
+          <TodoCreate />
+        </TodoTemplate>
+      </TodoProvider>
     </div>
   );
 };
