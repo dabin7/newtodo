@@ -3,11 +3,6 @@ import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
 import { useTodoDispatch } from '../Context';
 
-const TodoItemBlock = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 12px 0;
-`;
 const CheckBox = styled.div`
   width: 32px;
   height: 32px;
@@ -30,7 +25,9 @@ const CheckBox = styled.div`
       color: #38d9a9;
     `}
 `;
+
 const Text = styled.div`
+  flex: 1;
   font-size: 21px;
   margin: 0 10px;
   color: #343a40;
@@ -41,16 +38,31 @@ const Text = styled.div`
       color: #ced4da;
     `}
 `;
+
 const Remove = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   color: #dee2e6;
+  margin-right: 20px;
   padding-top: 2px;
   font-size: 22px;
   cursor: pointer;
+  display: none;
   &:hover {
     color: #ff6b6b;
+  }
+`;
+
+const TodoItemBlock = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+
+  &:hover {
+    ${Remove} {
+      display: initial;
+    }
   }
 `;
 

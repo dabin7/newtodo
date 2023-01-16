@@ -4,7 +4,19 @@ import TodoItem from './TodoItem';
 import { useTodoState } from '../Context';
 
 const TodoListBlock = styled.div`
-  padding: 20px 20px 45px 20px;
+  margin: 20px 20px 30px 20px;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 13px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #38d9a9;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
 `;
 
 const TodoList = () => {

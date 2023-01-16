@@ -16,7 +16,7 @@ const TodoHeadBlock = styled.div`
   }
 
   .tasks {
-    color: #20c997;
+    color: #343a40;
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
