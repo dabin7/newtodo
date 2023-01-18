@@ -1,4 +1,10 @@
-import React, { createContext, useReducer, useContext, useRef } from 'react';
+import React, {
+  createContext,
+  useReducer,
+  useContext,
+  useRef,
+  useEffect,
+} from 'react';
 
 const TodoStateContext = createContext(null);
 const TodoDispatchContext = createContext(null);
@@ -35,7 +41,15 @@ const initialTodos = [
 ];
 
 export const TodoProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(todoReducer, initialTodos);
+  const [state, dispatch] = useReducer(todoReducer, initialTodos, () => {
+    const localData = localStorage.getItem('state');
+    return localData ? JSON.parse(localData) : initialTodos;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state));
+  }, [state]);
+
   const nextId = useRef(5);
 
   return (

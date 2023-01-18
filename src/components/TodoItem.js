@@ -14,15 +14,16 @@ const CheckBox = styled.div`
   align-items: center;
   margin: 0 10px;
 
-  border: 1px solid #ced4da;
+  border: 1px solid #868e96;
   border-radius: 50%;
   color: #ced4da;
 
   ${(props) =>
     props.done &&
     css`
-      border: 1px solid #38d9a9;
-      color: #38d9a9;
+      border: 1px solid #868e96;
+      color: #fa5252;
+      opacity: 0.5;
     `}
 `;
 

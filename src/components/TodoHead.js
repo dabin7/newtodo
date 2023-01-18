@@ -6,7 +6,7 @@ const TodoHeadBlock = styled.div`
   h1 {
     margin: 0;
     color: #343a40;
-    font-size: 36px;
+    font-size: 38px;
   }
 
   .day {
@@ -30,13 +30,13 @@ const TodoHeadBlock = styled.div`
 const TodoHead = () => {
   const today = new Date();
 
-  const dateString = today.toLocaleString('ko-KR', {
+  const dateString = today.toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
 
-  const dayName = today.toLocaleString('ko-KR', { weekday: 'long' });
+  const dayName = today.toLocaleString('en-US', { weekday: 'long' });
   const todos = useTodoState();
   const undoneTasks = todos.filter((todo) => !todo.done);
 
@@ -44,7 +44,7 @@ const TodoHead = () => {
     <TodoHeadBlock>
       <h1>{dateString}</h1>
       <div className='day'>{dayName}</div>
-      <div className='tasks'>할 일 {undoneTasks.length}개 남음</div>
+      <div className='tasks'>Remaining Tasks : {undoneTasks.length}</div>
     </TodoHeadBlock>
   );
 };

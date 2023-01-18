@@ -1,31 +1,18 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
-import TodoTemplate from './components/TodoTemplate';
-import TodoHead from './components/TodoHead';
-import TodoList from './components/TodoList';
-import TodoPeriod from './components/TodoPeriod';
-import TodoCreate from './components/TodoCreate';
-import { TodoProvider } from './Context';
-
-const GlobalStyle = createGlobalStyle`
-body {
-  background: #e9ecef;
-}
-`;
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Today from './pages/today';
+import Month from './pages/month';
+import Year from './pages/year';
 
 const App = () => {
   return (
-    <div>
-      <TodoProvider>
-        <GlobalStyle />
-        <TodoPeriod />
-        <TodoTemplate>
-          <TodoHead />
-          <TodoList />
-          <TodoCreate />
-        </TodoTemplate>
-      </TodoProvider>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Today />} />
+        <Route path='month' element={<Month />} />
+        <Route path='year' element={<Year />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
