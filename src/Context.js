@@ -41,14 +41,15 @@ const initialTodos = [
 ];
 
 export const TodoProvider = ({ children }) => {
+  const todos = `todos${window.location.pathname}`;
   const [state, dispatch] = useReducer(todoReducer, initialTodos, () => {
-    const localData = localStorage.getItem('state');
+    const localData = localStorage.getItem(todos); //state를 읽는 메서드
     return localData ? JSON.parse(localData) : initialTodos;
-  });
+  }); //useReducer 안에 localsorage를 읽어줌. parse <=> stringify 다시바꿔줌.
 
   useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state));
-  }, [state]);
+    localStorage.setItem(todos, JSON.stringify(state)); //storage에 추가
+  }, [state, todos]);
 
   const nextId = useRef(5);
 
