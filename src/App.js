@@ -1,17 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Today from './pages/today';
 import Month from './pages/month';
 import Year from './pages/year';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Today />} />
-        <Route path='month' element={<Month />} />
-        <Route path='year' element={<Year />} />
-      </Routes>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Switch>
+        <Route path='/'>
+          <Today />
+        </Route>
+        <Route path='/month'>
+          <Month />
+        </Route>
+        <Route path='/year'>
+          <Year />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 };
