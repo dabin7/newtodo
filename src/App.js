@@ -6,19 +6,21 @@ import Year from './pages/year';
 
 const App = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route path='/'>
-          <Today />
-        </Route>
-        <Route path='/month'>
-          <Month />
-        </Route>
-        <Route path='/year'>
-          <Year />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route path='/'>
+            <Today />
+          </Route>
+          <Route path='/month'>
+            <Month />
+          </Route>
+          <Route path='/year'>
+            <Year />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 };
 
